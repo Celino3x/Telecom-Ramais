@@ -24,10 +24,6 @@
             <th scope="col">Ramal</th>
             <th scope="col">Setor</th>
             <th scope="col">Local</th>
-
-            <th scope="col">Ponto</th>
-            <th scope="col">Voz</th>
-
             <th scope="col">Ação</th>
 
           </tr>
@@ -45,16 +41,12 @@
               $numero_ramal = $array['nome_ramal'];
               $setor_ramal = $array['setor_ramal'];
               $local_ramal = $array['local_ramal'];
-              $ponto_ramal = $array['ponto_ramal'];
-              $voz_ramal = $array['voz_ramal'];
            ?>
            <tbody>
              <td><?php echo $nome_ramal ?></td>
              <td> <?php echo $numero_ramal ?> </td>
              <td> <?php echo $setor_ramal ?> </td>
              <td> <?php echo $local_ramal ?> </td>
-             <td> <?php echo $ponto_ramal ?> </td>
-             <td> <?php echo $voz_ramal ?> </td>
 
              <td>
                <a class="btn btn-warning btn-sm btedit" href="editar_ramal.php?id=<?php echo $id_ramal ?>" role="button"><i class="far fa-edit"></i>Editar</a>

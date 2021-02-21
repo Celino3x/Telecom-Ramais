@@ -11,26 +11,31 @@
   <body>
 
     <div class="container formCadRamal">
-      <form>
+    <h3>Form. Cadastrar Ramal</h3>
+      <form class="form-cad" action="_inserir_ramal.php" method="post">
+
           <div class="mb-3">
             <label class="form-label">Nome</label>
-            <input type="text" class="form-control" placeholder="João da Silva">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Ramal</label>
-            <input type="number" class="form-control" placeholder="7777">
+            <input type="text" name="nome_ramal" class="form-control" placeholder="João da Silva" required autocomplete="off">
           </div>
 
-          <select class="form-select">
+          <div class="mb-3">
+            <label class="form-label">Ramal</label>
+            <input type="number" name="numero_ramal" class="form-control" placeholder="7777" required autocomplete="off">
+          </div>
+
+          <select class="form-select" name="setor_ramal" required>
             <option selected>Selecione o Setor</option>
             <option value="Arte">Arte</option>
             <option value="Cenografia">Cenografia</option>
             <option value="Continuidade">Continuidade</option>
+            <option value="Telecom">Telecom</option>
+            <option value="Tecnologia da Informação">Tecnologia da Informação</option>
           </select>
 
         </br>
 
-          <select class="form-select">
+          <select class="form-select" name="local_ramal" required>
             <option selected>Selecione o Local</option>
             <option value="PA1">PA1</option>
             <option value="PA2">PA2</option>
@@ -52,13 +57,17 @@
 
           <div class="mb-3">
             <label class="form-label">Ponto</label>
-            <input type="text" class="form-control" placeholder="A00">
+            <input type="text" name="ponto_ramal" class="form-control" placeholder="A00" autocomplete="off">
           </div>
+
           <div class="mb-3">
             <label class="form-label">Voz</label>
-            <input type="text" class="form-control" placeholder="V00">
+            <input type="text" name="voz_ramal" class="form-control" placeholder="V00" autocomplete="off">
           </div>
-          <button type="submit" class="btn btn-secondary">Cadastrar</button>
+
+          <div class="bt-cad">
+            <button type="submit" class="btn btn-secondary"><i class="far fa-save"></i> Cadastrar</button>
+          </div>
       </form>
     </div>
 

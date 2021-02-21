@@ -6,10 +6,6 @@
   text-align: right;
 }
 
-.inputNumRamal{
-
-}
-
 .inputId{
   display: none;
 }
@@ -17,4 +13,13 @@
 .formCadRamal{
   margin-top: 40px;
   width: 500px;
+}
+
+.bt-cad{
+  text-align: right;
+  font-weight: bold;
+}
+
+.form-cad{
+  margin-top: 10px;;
 }
