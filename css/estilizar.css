@@ -17,9 +17,25 @@
 
 .bt-cad{
   text-align: right;
+  margin-top: 20px;
+}
+
+#bt-update{
   font-weight: bold;
 }
+
 
 .form-cad{
   margin-top: 10px;;
 }
+
+.voltar{
+  width: 500px;;
+  margin-top: 30px;
+}
+
+.voltar-btn{
+  padding-top: 20px;
+}
+
+

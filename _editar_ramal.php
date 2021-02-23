@@ -1,8 +1,12 @@
+<?php
+  include 'conexao.php';
+  $id = $_GET['id'];
+ ?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
-    <title>Cadastrar Ramal | Telecom</title>
+    <title>Editar Ramal | Telecom</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/estilizar.css">
@@ -11,21 +15,32 @@
   <body>
 
     <div class="container formCadRamal">
-    <h3>Form. Cadastrar Ramal</h3>
+    <h3>Edição de Ramal</h3>
       <form class="form-cad" action="_inserir_ramal.php" method="post">
+        <?php
+          $sql = "SELECT * FROM `ramais` WHERE id_ramal = $id";
+          $buscar = mysqli_query($conexao, $sql);
+          while ($array = mysqli_fetch_array($buscar)){
+
+            $id_ramal = $array['id_ramal'];
+            $nome_ramal = $array['nome_ramal'];
+            $numero_ramal = $array['numero_ramal'];
+            $setor_ramal = $array['setor_ramal'];
+            $local_ramal = $array['local_ramal'];
+        ?>
 
           <div class="mb-3">
             <label class="form-label">Nome</label>
-            <input type="text" name="nome_ramal" class="form-control" placeholder="João da Silva" required autocomplete="off">
+            <input type="text" name="nome_ramal" class="form-control" value="<?php echo $nome_ramal ?>">
           </div>
 
           <div class="mb-3">
             <label class="form-label">Ramal</label>
-            <input type="number" name="numero_ramal" class="form-control" placeholder="7777" required autocomplete="off">
+            <input type="number" name="numero_ramal" class="form-control" value="<?php echo $numero_ramal ?>" disabled>
           </div>
 
-          <select class="form-select" name="setor_ramal" required>
-            <option selected>Selecione o Setor</option>
+          <select class="form-select" name="setor_ramal" value="<?php echo $setor_ramal ?>">
+         
             <option value="Arte">Arte</option>
             <option value="Cenografia">Cenografia</option>
             <option value="Continuidade">Continuidade</option>
@@ -35,8 +50,8 @@
 
         </br>
 
-          <select class="form-select" name="local_ramal" required>
-            <option selected>Selecione o Local</option>
+          <select class="form-select" name="local_ramal" value="<?php echo $local_ramal ?>">
+          
             <option value="PA1">PA1</option>
             <option value="PA2">PA2</option>
             <option value="PA3">PA3</option>
@@ -55,19 +70,20 @@
             <option value="Guarita">Guarita</option>
           </select>
 
-  <!--        <div class="mb-3">
+    <!--      <div class="mb-3">
             <label class="form-label">Ponto</label>
-            <input type="text" name="ponto_ramal" class="form-control" placeholder="A00" autocomplete="off">
+            <input type="text" name="ponto_ramal" class="form-control" >
           </div>
 
           <div class="mb-3">
             <label class="form-label">Voz</label>
-            <input type="text" name="voz_ramal" class="form-control" placeholder="V00" autocomplete="off">
-          </div>
+            <input type="text" name="voz_ramal" class="form-control" >
+          </div> -->
 
           <div class="bt-cad">
-            <button type="submit" class="btn btn-secondary"><i class="far fa-save"></i> Cadastrar</button>
-          </div> -->
+            <button type="submit" id="bt-update" class="btn btn-secondary"><i class="far fa-save"></i> Atualizar</button>
+          </div>
+          <?php } ?>
       </form>
     </div>
 

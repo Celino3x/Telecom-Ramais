@@ -37,8 +37,8 @@
 
             while($array = mysqli_fetch_array($busca)){
               $id_ramal = $array['id_ramal'];
-              $nome_ramal = $array['numero_ramal'];
-              $numero_ramal = $array['nome_ramal'];
+              $nome_ramal = $array['nome_ramal'];
+              $numero_ramal = $array['numero_ramal'];
               $setor_ramal = $array['setor_ramal'];
               $local_ramal = $array['local_ramal'];
            ?>
@@ -49,8 +49,8 @@
              <td> <?php echo $local_ramal ?> </td>
 
              <td>
-               <a class="btn btn-warning btn-sm btedit" href="editar_ramal.php?id=<?php echo $id_ramal ?>" role="button"><i class="far fa-edit"></i>Editar</a>
-               <a class="btn btn-danger btn-sm btedit" href="deletar_ramal.php?id=<?php echo $id_ramal ?>" role="button"><i class="far fa-trash-alt"></i>Excluir</a>
+               <a class="btn btn-warning btn-sm btedit" href="_editar_ramal.php?id=<?php echo $id_ramal ?>" role="button"><i class="far fa-edit"></i>Editar</a>
+               <a class="btn btn-danger btn-sm btedit" href="_deletar_ramal.php?id=<?php echo $id_ramal ?>" role="button"><i class="far fa-trash-alt"></i>Excluir</a>
              </td>
            </tbody>
 
