@@ -16,7 +16,7 @@
 
     <div class="container formCadRamal">
     <h3>Edição de Ramal</h3>
-      <form class="form-cad" action="_inserir_ramal.php" method="post">
+      <form class="form-cad" action="_atualizar_ramal.php" method="post">
         <?php
           $sql = "SELECT * FROM `ramais` WHERE id_ramal = $id";
           $buscar = mysqli_query($conexao, $sql);
@@ -37,6 +37,7 @@
           <div class="mb-3">
             <label class="form-label">Ramal</label>
             <input type="number" name="numero_ramal" class="form-control" value="<?php echo $numero_ramal ?>" disabled>
+            <input type="number" name="id" class="form-control displayid" value="<?php echo $id ?>" >
           </div>
 
           <select class="form-select" name="setor_ramal" value="<?php echo $setor_ramal ?>">

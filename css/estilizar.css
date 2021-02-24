@@ -38,4 +38,6 @@
   padding-top: 20px;
 }
 
-
+.displayid{
+  display: none;
+}
