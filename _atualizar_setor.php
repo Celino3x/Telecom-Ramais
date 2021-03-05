@@ -1,15 +1,13 @@
 <?php
-    $id = $_POST['id'];
+   
     include 'conexao.php';
-
-    //$id_ramal = $_POST['id_ramal'];
-    //$numero_ramal = $_POST['numero_ramal'];
-    $nome_ramal = $_POST['nome_ramal'];
-    $setor_ramal = $_POST['setor_ramal'];
-    $local_ramal = $_POST['local_ramal'];
+    
+    $id = $_POST['id'];
+    $nome_setor = $_POST['nome_setor'];
+    
 
 
-   $sql = "UPDATE `ramais` SET `nome_ramal`='$nome_ramal',`setor_ramal`='$setor_ramal',`local_ramal`='$local_ramal' WHERE id_ramal = $id";
+   $sql = "UPDATE `setor` SET `nome_setor`='$nome_setor' WHERE id_setor = $id";
    $atualizar = mysqli_query($conexao, $sql);
 
 
@@ -32,7 +30,7 @@
     <center>
       <h3>Atualizado com Sucesso!</h3>
       <p>"Não pare! faça até dar errado."</p>
-      <a href="listar_ramal.php" class="btn btn-warning"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a>
+      <a href="listar_setor.php" class="btn btn-warning"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a>
     </center>
   </div>
 

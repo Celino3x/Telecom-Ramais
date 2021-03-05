@@ -41,3 +41,85 @@
 .displayid{
   display: none;
 }
+
+.menu_itens{
+  margin-top: 30px;
+}
+
+.logo{
+  width: 200px;
+}
+
+.animate__animated.animate__pulse{
+  --animate-duration: 1000ms;
+  --animate-delay: 0.9s;
+}
+
+.animate__animated, .animate__rubberBand:hover{
+  --animate-duration: 1000ms;
+  --animate-delay: 1.9s;
+}
+
+.title-menu{
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 30px;
+}
+
+.formSetor{
+  margin-top: 40px;
+  width: 500px;
+}
+
+.btAdicionar{
+  margin-top: 10px;
+}
+
+/*bloco de quadros menu*/
+.quad-index{
+  margin-top: 20px;
+}
+
+.lisSetor{
+  margin-top: 40px;
+  width: 400px;
+}
+
+.lisUser{
+  margin-top: 40px;
+  
+}
+
+.buscar{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.form_cad_user{
+  width: 400px;
+  margin-top: 40px;
+}
+
+.bt_cadUser{
+  text-align: right;
+  margin-top: 10px;
+}
+
+.select_nivel{
+  margin-top: 5px;
+}
+
+.voltar_topo{
+  text-align: right;
+}
+
+.center_Sucess{
+  margin-top: 20px;
+}
+
+.h3_user{
+  margin-top: 30px;
+}
+
+.logoff{
+  text-align: right;
+}

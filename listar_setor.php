@@ -10,69 +10,46 @@
     <script src="https://kit.fontawesome.com/a922503613.js" crossorigin="anonymous"></script>
   </head>
   <body>
+      
   <?php
     include 'navbar.php';
     ?>
     
-    <div class="container lisProd">
+    <div class="container lisSetor">
 
     <div class="bt-back">
         <a href="menu.php" role="button" class="btn btn-dark">Voltar</a>
       </div>
 
-      <h3>Lista de Ramais | Casablanca</h3>
-
-      <form class="d-flex buscar" action="buscar_ramal.php" method="post">
-
-        <input class="form-control me-2" name="buscar" type="text" placeholder="Digite o nome, setor ou local" aria-label="Search">
-        <button class="btn btn-outline-dark" type="submit">Buscar</button>
-
-      </form>
+      <h3>Lista de Setores | Casablanca</h3>
 
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Ramal</th>
-            <th scope="col">Setor</th>
-            <th scope="col">Local</th>
-            <?php 
-                if(($nivel == 1) || ($nivel == 2)){
-
-            ?>
+            <th scope="col">Nome Setor</th>
             <th scope="col">Ação</th>
-            <?php } ?>
+
           </tr>
         </thead>
 
         <tr>
           <?php
             include 'conexao.php';
-            $sql = "SELECT * FROM `ramais` ORDER BY `nome_ramal`";
+            $sql = "SELECT * FROM `setor`";
             $busca = mysqli_query($conexao, $sql);
 
             while($array = mysqli_fetch_array($busca)){
-              $id_ramal = $array['id_ramal'];
-              $nome_ramal = $array['nome_ramal'];
-              $numero_ramal = $array['numero_ramal'];
-              $setor_ramal = $array['setor_ramal'];
-              $local_ramal = $array['local_ramal'];
+              $id_setor = $array['id_setor'];
+              $nome_setor = $array['nome_setor'];
            ?>
            <tbody>
-             <td><?php echo $nome_ramal ?></td>
-             <td> <?php echo $numero_ramal ?> </td>
-             <td> <?php echo $setor_ramal ?> </td>
-             <td> <?php echo $local_ramal ?> </td>
+             <td><?php echo $nome_setor ?></td>
+             
 
-             <?php 
-                if(($nivel == 1) || ($nivel == 2)){
-
-            ?>
              <td>
-               <a class="btn btn-warning btn-sm btedit" href="_editar_ramal.php?id=<?php echo $id_ramal ?>" role="button"><i class="far fa-edit"></i>Editar</a>
-               <a class="btn btn-danger btn-sm btedit" href="_deletar_ramal.php?id=<?php echo $id_ramal ?>" role="button"><i class="far fa-trash-alt"></i>Excluir</a>
+               <a class="btn btn-warning btn-sm btedit" href="_editar_setor.php?id=<?php echo $id_setor ?>" role="button"><i class="far fa-edit"></i>Editar</a>
+               <a class="btn btn-danger btn-sm btedit" href="_deletar_setor.php?id=<?php echo $id_setor ?>" role="button"><i class="far fa-trash-alt"></i>Excluir</a>
              </td>
-             <?php } ?>
            </tbody>
 
          <?php } ?>

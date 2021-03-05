@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
-    <title>Lista de ramais</title>
+    <title>Lista Usuários</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/estilizar.css">
@@ -20,59 +20,51 @@
         <a href="menu.php" role="button" class="btn btn-dark">Voltar</a>
       </div>
 
-      <h3>Lista de Ramais | Casablanca</h3>
+      <h3>Lista de Usuários | Casablanca</h3>
 
-      <form class="d-flex buscar" action="buscar_ramal.php" method="post">
+      <!-- <form class="d-flex buscar" action="buscar_ramal.php" method="post">
 
-        <input class="form-control me-2" name="buscar" type="text" placeholder="Digite o nome, setor ou local" aria-label="Search">
+        <input class="form-control me-2" name="buscar" type="search" placeholder="Digite o nome, setor ou local" aria-label="Search">
         <button class="btn btn-outline-dark" type="submit">Buscar</button>
 
-      </form>
+      </form> -->
 
       <table class="table table-striped table-hover">
         <thead>
           <tr>
             <th scope="col">Nome</th>
-            <th scope="col">Ramal</th>
-            <th scope="col">Setor</th>
-            <th scope="col">Local</th>
-            <?php 
-                if(($nivel == 1) || ($nivel == 2)){
-
-            ?>
+            <th scope="col">E-mail</th>
+            <th scope="col">Nivel</th>
+            <th scope="col">Status</th>
             <th scope="col">Ação</th>
-            <?php } ?>
+
           </tr>
         </thead>
 
         <tr>
           <?php
             include 'conexao.php';
-            $sql = "SELECT * FROM `ramais` ORDER BY `nome_ramal`";
+            $sql = "SELECT * FROM `usuarios`";
             $busca = mysqli_query($conexao, $sql);
 
             while($array = mysqli_fetch_array($busca)){
-              $id_ramal = $array['id_ramal'];
-              $nome_ramal = $array['nome_ramal'];
-              $numero_ramal = $array['numero_ramal'];
-              $setor_ramal = $array['setor_ramal'];
-              $local_ramal = $array['local_ramal'];
+              $id_usuario = $array['id_usuario'];
+              $nome_usuario = $array['nome_usuario'];
+              $mail_usuario = $array['mail_usuario'];
+              $nivel_usuario = $array['nivel_usuario'];
+              $status_usuario = $array['status_usuario'];
            ?>
+
            <tbody>
-             <td><?php echo $nome_ramal ?></td>
-             <td> <?php echo $numero_ramal ?> </td>
-             <td> <?php echo $setor_ramal ?> </td>
-             <td> <?php echo $local_ramal ?> </td>
+             <td><?php echo $nome_usuario ?></td>
+             <td> <?php echo $mail_usuario ?> </td>
+             <td> <?php echo $nivel_usuario ?> </td>
+             <td> <?php echo $status_usuario ?> </td>
 
-             <?php 
-                if(($nivel == 1) || ($nivel == 2)){
-
-            ?>
              <td>
-               <a class="btn btn-warning btn-sm btedit" href="_editar_ramal.php?id=<?php echo $id_ramal ?>" role="button"><i class="far fa-edit"></i>Editar</a>
-               <a class="btn btn-danger btn-sm btedit" href="_deletar_ramal.php?id=<?php echo $id_ramal ?>" role="button"><i class="far fa-trash-alt"></i>Excluir</a>
+               <a class="btn btn-warning btn-sm btedit" href="_editar_usuario.php?id=<?php echo $id_usuario ?>" role="button"><i class="far fa-edit"></i>Editar</a>
+               <a class="btn btn-danger btn-sm btedit" href="_deletar_usuario.php?id=<?php echo $id_usuario ?>" role="button"><i class="far fa-trash-alt"></i>Excluir</a>
              </td>
-             <?php } ?>
            </tbody>
 
          <?php } ?>
